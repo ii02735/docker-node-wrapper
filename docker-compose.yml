@@ -4,9 +4,18 @@ services:
         node:
             build: .
             volumes:
-                - ./node:/home/node
+                - ./container-files:/home/node
             user: node
             working_dir: /home/node 
-            env_file: .env
-            ports:
-                - ${REACT_APP_PORT}:3000
+            env_file: 
+                - .react.env
+                - .node.env
+            networks:
+                node_network:
+                  aliases:
+                    - frontend
+                    - backend
+
+
+networks:
+    node_network:
