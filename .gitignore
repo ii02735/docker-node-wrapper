@@ -1,4 +1,4 @@
-.env
+*.env
 node/*
 !node/.gitkeep
 container-files/.cache
